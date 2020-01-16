@@ -1,0 +1,18 @@
+<div>Doctor's name: <%=@doctor.name%><br />
+Department: <%=@doctor.department %><br />
+</div>
+<div>
+
+Patients: <br />
+<ul> 
+<%@doctor.patients.each do |p| %>
+<li>
+<%=link_to p.name, patient_path(p)%>:
+</li>
+<%p.appointments.each do |app| %>
+<%=app.display_date %><br />
+<%end%>
+<%end%>
+
+</ul>
+</div>
